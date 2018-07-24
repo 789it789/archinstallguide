@@ -29,7 +29,10 @@ dhcpcd (request ip from DHCP server)
 
 if you have no wifi:
 
-iw dev (find wireless interface name)
+iw dev (find wireless interface name) 
+(or)
+lspci -v (shift + pageup/pagedown to scroll)
+dmesg | grep <interface_name>
 
 iw dev <interface_name> link
 
@@ -93,7 +96,7 @@ ip a
 (if no wifi, follow previous steps for getting wifi)
 
 
-pacman -Sy network_manager network_manager_applet wireless_tools wpa_supplicant wpa_actiond dialog xorg-server xorg-xinit xorg-server-utils mesa
+pacman -Sy wicd wireless_tools wpa_supplicant wpa_actiond dialog xorg-server xorg-xinit xorg-apps mesa
 
 
 (to install 32 bit packages, follow this step, please keep in mind that 32-bit support is going away soon)
@@ -137,14 +140,14 @@ pacman -Sy gdm
 sudo systemctl enable gdm
 
 
-sudo pacman -S xorg-twm terminator xorg-xclock cinnamon nemo-fileroller (look up all of these packages and choose which ones you want, terminator can be swapped out for xterm or gnome-terminal for exmaple and cinnamon can be changed to any desktop you like)
+sudo pacman -S terminator i3-wm thunar (look up all of these packages and choose which ones you want, terminator can be swapped out for xterm or gnome-terminal for exmaple and i3 can be changed to any desktop/wm you like)
 
 
-sudo pacman -S net-tools network-manager-applet
+sudo pacman -S net-tools
 
-sudo systemctl start Network Manager
+#(sudo systemctl start Network Manager)
 
-sudo systemctl enable Network Manager
+#(sudo systemctl enable Network Manager)
 
 
 (at this point, login by using sudo systemctl start <loginmanger>)
