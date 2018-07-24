@@ -33,7 +33,7 @@ iw dev (find wireless interface name)
 
 iw dev <interface_name> link
 
-ip link set <interface_name> ip
+ip link set <interface_name> up
 
 wpa_supplicant -B n180211 wext -i <interface_name> -e <(wpa_passphrase "SSID" "WIFI_PASSWORD")
 
@@ -60,9 +60,9 @@ nano /etc/locale.gen (uncomment en_US.UTF8 : ctrl+o ctrl+x to save and exit)
 
 locale-gen
 
-ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
+ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 
-hwclock --systohc --ust
+hwclock --systohcloca
 
 passwd (set your root password)
 
